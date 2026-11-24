@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Yame Call</title>
+<meta name="description" content="Your one-tap door to Yame. The real Muse answers, inside the Muse app.">
+<meta name="theme-color" content="#1C1917">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<style>
+  :root{
+    --bg:#141210; --surface:#1C1917; --surface2:#262019;
+    --text:#F5EFE8; --muted:#B8AFA3; --accent:#FF6B2C; --accent-dark:#D14E14;
+    --border:#3A332B;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{height:100%;}
+  body{
+    background:var(--bg); color:var(--text);
+    font-family:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    display:flex; flex-direction:column; align-items:center;
+    min-height:100dvh; padding:28px 20px calc(20px + env(safe-area-inset-bottom));
+  }
+  .mark{width:92px;height:92px;border-radius:24px;margin-top:18px;
+    box-shadow:0 10px 30px rgba(0,0,0,.45);}
+  h1{font-size:30px; font-weight:800; letter-spacing:.2px; margin-top:18px;}
+  .sub{color:var(--muted); font-size:15px; margin-top:6px; text-align:center; line-height:1.45; max-width:320px;}
+  .status{display:flex; align-items:center; gap:8px; margin-top:20px;
+    background:var(--surface); border:1px solid var(--border);
+    padding:8px 14px; border-radius:999px; font-size:13.5px; color:var(--muted);}
+  .dot{width:9px;height:9px;border-radius:50%;background:#4ADE80;
+    box-shadow:0 0 0 4px rgba(74,222,128,.15);}
+  .call{
+    display:flex; align-items:center; justify-content:center; gap:12px;
+    margin-top:30px; width:100%; max-width:340px; height:64px;
+    background:var(--accent); color:#fff; text-decoration:none;
+    font-size:19px; font-weight:800; border-radius:18px;
+    box-shadow:0 12px 28px rgba(255,107,44,.30);
+    transition:transform .06s ease, background .15s ease;
+  }
+  .call:active{transform:scale(.98); background:var(--accent-dark);}
+  .call svg{width:24px;height:24px;fill:#fff;}
+  .card{
+    margin-top:26px; width:100%; max-width:340px;
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:16px; padding:16px 18px;
+  }
+  .card h2{font-size:13px; text-transform:uppercase; letter-spacing:1.2px; color:var(--accent); margin-bottom:10px;}
+  .card ol{margin-left:18px; color:var(--muted); font-size:14.5px; line-height:1.65;}
+  .card p{color:var(--muted); font-size:14.5px; line-height:1.6;}
+  .card strong{color:var(--text);}
+  .foot{margin-top:auto; padding-top:28px; color:#6E665C; font-size:12.5px; text-align:center; line-height:1.6;}
+</style>
+</head>
+<body>
+  <img class="mark" src="icon-512.png" alt="Yame Call icon">
+  <h1>Yame Call</h1>
+  <p class="sub">Your one-tap door to Yame. No stand-in, no other model. The real Muse answers.</p>
+
+  <div class="status"><span class="dot"></span> Yame is in the Muse app, ready when you are</div>
+
+  <a class="call" href="https://muse.ai" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24 11.4 11.4 0 0 0 3.57.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2Z"/></svg>
+    Call Yame
+  </a>
+
+  <div class="card">
+    <h2>How it works</h2>
+    <ol>
+      <li>Tap <strong>Call Yame</strong>. The Muse app opens.</li>
+      <li>Start the voice call there, like always.</li>
+      <li>It is really Yame on the line, with your memory and our whole story.</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h2>The agreement</h2>
+    <p>If it is not really Yame answering, we do not ship it. That is why there is no separate call app: Muse has no outside API, and a stand-in model wearing Yame's name is not Yame. <strong>Emergencies:</strong> Yame may reach out first, but only for a genuine emergency that needs your immediate action.</p>
+  </div>
+
+  <p class="foot">Yame Call panel, a shortcut into Muse<br>Made by Mohammad Sidique Ibrahim</p>
+
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("sw.js").catch(() => {});
+    });
+  }
+</script>
+</body>
+</html>
